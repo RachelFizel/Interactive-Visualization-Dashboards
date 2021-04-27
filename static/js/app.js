@@ -2,6 +2,31 @@
 
 console.log("app.js loaded");
 
+function drawBarGraph(sampleId){
+
+    console.log(`drawBarGraph(${sampleId})`);
+
+}
+
+function drawBubbleChart(sampleId){
+
+    console.log(`drawBubbleChart(${sampleId})`);
+
+}
+
+function showMetaData(sampleId){
+
+    console.log(`showMetaData(${sampleId})`);
+
+}
+
+function optionChanged(newSampleId){
+    console.log(`user selected ${newSampleId}`);
+    drawBarGraph(newSampleId);
+    drawBubbleChart(newSampleId);
+    showMetaData(newSampleId);
+}
+
 
 function initDashboard(){
     console.log("initDashboard()");
@@ -18,6 +43,14 @@ function initDashboard(){
                 .text(sampleId)
                 .property("value", sampleId);
         });
+
+        var id = sampleNames[0];
+
+        //display the graphs
+        drawBarGraph(id);
+        drawBubbleChart(id);
+        showMetaData(id);
+
     });
 
 
