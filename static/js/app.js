@@ -132,12 +132,16 @@ function showMetaData(sampleId){
 }
 
 
+function drawGaugeChart(sampleId){
+    console.log(`drawGaugeChart(${sampleId})`)
+}
 
 function optionChanged(newSampleId){
     //console.log(`user selected ${newSampleId}`);
     drawBarGraph(newSampleId);
     drawBubbleChart(newSampleId);
     showMetaData(newSampleId);
+    drawGaugeChart(newSampleId);
 }
 
 
@@ -163,6 +167,7 @@ function initDashboard(){
         drawBarGraph(id);
         drawBubbleChart(id);
         showMetaData(id);
+        drawGaugeChart(id);
 
     });
 
