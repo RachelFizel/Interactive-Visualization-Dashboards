@@ -134,6 +134,27 @@ function showMetaData(sampleId){
 
 function drawGaugeChart(sampleId){
     console.log(`drawGaugeChart(${sampleId})`)
+    d3.json("data/samples.json").then(data => {
+        //console.log(data[0].wfreq);
+
+        var metadata = data.metadata;
+        var resultArray = metadata.filter(m => m.id == sampleId);
+
+        console.log(resultArray[0].wfreq);
+
+        var datatest = [
+            {
+                domain: { x: [0, 1], y: [0, 1] },
+                value: resultArray[0].wfreq,
+                title: { text: "Belly Button Washing Frequency" },
+                type: "indicator",
+                mode: "gauge+number"
+            }
+        ]
+    
+       
+        Plotly.newPlot('gauge', datatest);
+    })
 }
 
 function optionChanged(newSampleId){
